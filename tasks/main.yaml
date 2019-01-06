@@ -4,7 +4,7 @@
     state: present
     command: ssh
     name: "{{ item.name }}"
-    api_token: "{{ do_api_token if do_api_token | length > 0 else omit }}"
+    api_token: "{{ do_api_token if do_api_token|string|length > 0 else omit }}"
     ssh_pub_key: "{{ item.material }}"
   loop: "{{ do_ssh_keys }}"
   register: ssh_keys
@@ -14,7 +14,7 @@
     state: present
     command: droplet
     name: "{{ droplet_name }}"
-    api_token: "{{ do_api_token if do_api_token | length > 0 else omit }}"
+    api_token: "{{ do_api_token if do_api_token|string|length > 0 else omit }}"
     size_id: "{{ droplet_size }}"
     region_id: "{{ do_region }}"
     image_id: "{{ droplet_image }}"
