@@ -41,6 +41,12 @@ Example Playbook
     - digitalocean
 ```
 
+Tasks
+-----
+- [ ] Setup firewall rules and attach it to droplet
+- [ ] Setup basic monitoring for server/processes metrics
+- [ ] Backup settings and implementation
+
 License
 -------
 
