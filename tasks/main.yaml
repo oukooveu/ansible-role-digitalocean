@@ -21,7 +21,7 @@
     unique_name: yes
     private_networking: no
     ssh_key_ids: "{{ ssh_keys.results | map(attribute='ssh_key.id') | list }}"
-    wait_timeout: 300
+    wait_timeout: 600
   register: do
 
 - name: add new host to the inventory
