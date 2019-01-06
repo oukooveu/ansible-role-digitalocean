@@ -3,7 +3,7 @@ Ansible role: DigitalOcean
 
 Setup DigitalOcean droplet and SSH keys.
 
-DigitalOcean API token should be provided through  `DO_API_TOKEN` environment variable.
+DigitalOcean API token should be provided through `do_api_token` or `DO_API_TOKEN` environment variable.
 
 Requirements
 ------------
@@ -14,10 +14,15 @@ Role Variables
 --------------
 
 ```
-do_image: 'centos-7-x64'
-do_size: '1gb'
-do_region: 'ams3'
+do_region: 'lon1'
 do_ssh_keys: []
+do_api_token: ''
+
+droplet_image: 'centos-7-x64'
+droplet_size: '1gb'
+droplet_name: ''
+droplet_inventory_groups:
+  - digitalocean
 ```
 
 Dependencies

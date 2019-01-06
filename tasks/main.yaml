@@ -4,6 +4,7 @@
     state: present
     command: ssh
     name: "{{ item.name }}"
+    api_token: "{{ do_api_token if do_api_token | length > 0 else omit }}"
     ssh_pub_key: "{{ item.material }}"
   loop: "{{ do_ssh_keys }}"
   register: ssh_keys
@@ -12,10 +13,11 @@
   digital_ocean:
     state: present
     command: droplet
-    name: "{{ do_name }}"
-    size_id: "{{ do_size }}"
+    name: "{{ droplet_name }}"
+    api_token: "{{ do_api_token if do_api_token | length > 0 else omit }}"
+    size_id: "{{ droplet_size }}"
     region_id: "{{ do_region }}"
-    image_id: "{{ do_image }}"
+    image_id: "{{ droplet_image }}"
     unique_name: yes
     private_networking: no
     ssh_key_ids: "{{ ssh_keys.results | map(attribute='ssh_key.id') | list }}"
@@ -26,5 +28,5 @@
   when: do.droplet is defined
   add_host:
     name: "{{ do.droplet.ip_address }}"
-    groups: gateways
+    groups: "{{ droplet_inventory_groups }}"
   changed_when: false

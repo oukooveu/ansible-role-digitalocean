@@ -1,5 +1,10 @@
 ---
-do_image: 'centos-7-x64'
-do_size: '1gb'
 do_region: 'ams3'
 do_ssh_keys: []
+do_api_token: ''
+
+droplet_image: 'centos-7-x64'
+droplet_size: '1gb'
+droplet_name: ''
+droplet_inventory_groups:
+  - digitalocean
