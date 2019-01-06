@@ -1,0 +1,11 @@
+---
+dependencies: []
+galaxy_info:
+  role_name: digitalocean
+  author: oukooveu
+  description: digitalocean droplet and ssh keys setup
+  license: Apache 2.0
+  min_ansible_version: 2.4
+  galaxy_tags:
+    - cloud
+    - digitalocean
